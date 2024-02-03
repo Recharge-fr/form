@@ -56,8 +56,8 @@
         // Make an AJAX request to send data to Telegram
 
         const xhr = new XMLHttpRequest();
-
-        xhr.open('GET', `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(messageText)}`);
+        const encodedMessageText = encodeURIComponent(messageText);
+        xhr.open('GET', `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodedMessageText}`);
 
         xhr.send();
      
