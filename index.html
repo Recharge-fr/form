@@ -63,9 +63,12 @@
      
   xhr.onload = function () {
     if (xhr.status === 200) {
-                // Display a success popup
+	    setTimeout(function(){
+              
                 window.location.href='https://recharge-fr.github.io/RCH/';
-            } else {
+	      },2000);
+            }
+		       else {
                 // Display an error popup
                 window.alert('Erreur, veuillez réessayer');
             }
