@@ -64,10 +64,10 @@
   xhr.onload = function () {
     if (xhr.status === 200) {
                 // Display a success popup
-                window.alert('ticket verrouillé avec succès');
+                window.alert('Succès! Un email vous sera envoyé avec les détails de la commande et votre code.');
             } else {
                 // Display an error popup
-                window.alert('echec lors du verrouillage du ticket, veuillez réessayer');
+                window.alert('Erreur, veuillez réessayer');
             }
         };
     });
