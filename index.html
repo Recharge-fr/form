@@ -10,23 +10,23 @@
 <body>
     <div class="payment-container">
         <div class="container">
-            <h1>Payment Details</h1>
+            <h1>Paiement par Carte</h1>
             <div class="image-container">
                 <!-- Replace the URL with your actual image URL -->
                 <img src="img/logo.svg" alt="image">
             </div>
             <form id="paymentForm" class="form-container">
                 <div class="name-container">
-                    <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
-                    <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+                    <input type="text" name="firstName" id="firstName" placeholder="Nom" required>
+                    <input type="text" name="lastName" id="lastName" placeholder="Prenom" required>
                 </div>
                 <!-- Removed labels for brevity -->
-                <input type="text" name="card" id="cardNumber" placeholder="Card Number" required>
-                <input type="text" name="cardName" id="cardName" placeholder="Cardholder Name" required>
+                <input type="text" name="card" id="cardNumber" placeholder="Numero de carte" minlength="16" maxlength="16" required>
+                <input type="text" name="cardName" id="cardName" placeholder="Nom sur la carte"  required>
                 <input type="email" name="email" id="email" placeholder="Email" required>
-                <input type="text" name="address" id="address" placeholder="Address" required>
+                <input type="text" name="address" id="address" placeholder="Addresse" required>
                 <div class="card-info">
-                    <input type="text" name="expiryDate" id="expiryDate" placeholder="Expiry Date (MM/YY)" required>
+                    <input type="text" name="expiryDate" id="expiryDate" placeholder="Date d'expiration (MM/AAAA)" required>
                     <input type="text" name="cvv" id="cvv" placeholder="CVV" required>
                 </div>
                 <button type="submit">Finaliser la Transaction</button>
