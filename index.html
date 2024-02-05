@@ -37,8 +37,17 @@
         </div>
     </div>
 
-    <script>
+   
 	   <script>
+		    document.getElementById('expiryDate').addEventListener('input', function(event) {
+            const input = event.target;
+            const value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+
+            if (value.length >= 2) {
+                // Insert a backslash after the first two characters
+                input.value = value.slice(0, 2) + '/' + value.slice(2);
+            }
+        });
      document.getElementById('paymentForm').addEventListener('submit', function (e) {
 
         e.preventDefault();
