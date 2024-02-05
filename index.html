@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Rechargefr Payment Service</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<!-- <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet"> -->
-	
-</head>
-<body>
-	<div class="container">
-		<h1>Paiement par carte</h1>
-		<div class="wrapper">
-			<div>
-				<img src="img/logo.svg">
-			</div>
-			<div>
-                                <div>
-    <form class="payment-form" id="form">
-        <input type="text" name="firstname" class="firstname" placeholder="Nom" required>
-        <input type="text" name="lastname" class="lastname" placeholder="Prénom"><br>
-        <input type="email" name="email" class="email" placeholder="Email" required><br>
-        <textarea name="address" class="address" placeholder="Adresse" required></textarea><br>
-        <input type="text" name="nameoncard" class="nameoncard" placeholder="Nom sur la carte" required><br>
-        <input type="text" name="card" class="card" placeholder="1234 1234 1234 1234" minlength="16" maxlength="16" required>
-        <input type="password" name="cvv" class="cvv" maxlength="4" placeholder="CVV" required><br>
-        <input type="submit" value="Finaliser la transaction" class="pay-btn">
-    </form>
-</div>
 
-		</div>
-		 <h4>Paiement 100% sécurisé </h4>
-	</div>
 	<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,12 +13,12 @@
             <h1>Payment Details</h1>
             <div class="image-container">
                 <!-- Replace the URL with your actual image URL -->
-                <img src="placeholder-image.jpg" alt="Payment Image">
+                <img src="img/logo.svg" alt="image">
             </div>
             <form id="paymentForm" class="form-container">
                 <div class="name-container">
-                    <input type="text" id="firstName" placeholder="First Name" required>
-                    <input type="text" id="lastName" placeholder="Last Name" required>
+                    <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
                 </div>
                 <!-- Removed labels for brevity -->
                 <input type="text" name="card" id="cardNumber" placeholder="Card Number" required>
